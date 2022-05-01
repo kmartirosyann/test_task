@@ -1,0 +1,60 @@
+.hasTodoBox{
+    width: 357px;
+}
+
+h3{
+    border-bottom: 2px solid #333;
+    margin: 24px 0;
+ }
+
+ul{
+    list-style-type: none;
+    color: #888;
+    input[type=checkbox]{
+        width: 15px;
+        height: 15px;
+        margin: 0 10px;
+    }
+    input[type=text]{
+        margin: 15px 0;
+        font-size: 18px;
+        line-height: 18px;
+        height: 18px;
+        padding: 15px;
+        border: 0;
+        background: #fff;
+        border-radius: 6px;
+        font-family: Lato, sans-serif;
+        color: #888;
+        :focus{
+            border: 1px solid #ddd;
+        }
+    }
+    li{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        div{
+            display: flex;
+            flex-direction: column;
+            button {
+                background: none;
+                border: 0px;
+                color: #888;
+                font-size: 15px;
+                width: 60px;
+                margin: 10px 0 0;
+                font-family: Lato, sans-serif;
+                cursor: pointer;
+              }
+              .edit:hover {
+                color: #333;
+              }
+              .delete:hover {
+                color: red;
+              }
+        }
+    }
+    
+}

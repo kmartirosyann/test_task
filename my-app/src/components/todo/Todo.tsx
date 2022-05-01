@@ -1,11 +1,12 @@
 import React,{FC, memo, useState} from 'react';
 
 import { useDispatch } from 'react-redux';
-import * as actionTypes from '../../store/actions/actionTypes';
+import { loadTodoList,deleteTodoItems,editCheckBox } from '../../store/actions/actionRequest';
 
 import { TodoItems} from '../../types/type';
 
 import '../../scss/todoItemBox.scss';
+
 
 const Todo:FC<TodoItems> = (props) => {
   const {completed,title,id} = props
@@ -19,25 +20,15 @@ const Todo:FC<TodoItems> = (props) => {
   }
 
   const handleUpdate =()=>{
-    dispatch({
-      type: actionTypes.EDIT_TODO_ITEM_TEXT,
-      title: text,
-      id
-    })
+    dispatch(loadTodoList(id,text)) 
   }
 
   const removeTodoItem =()=>{
-    dispatch({
-      type: actionTypes.DELETE_TODO_ITEM,
-      id
-    })
+    dispatch(deleteTodoItems(id))
   }
 
   const changeCheck =()=>{
-    dispatch({
-      type: actionTypes.EDIT_TODO_ITEM,
-      id
-    })
+    dispatch(editCheckBox(id))
   }
 
   return (

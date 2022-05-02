@@ -12,7 +12,7 @@ const App:FC =()=> {
         <AddItem/>
         <TodoList/>
     </div>
-  );
+  )
 }
 
 export default App;

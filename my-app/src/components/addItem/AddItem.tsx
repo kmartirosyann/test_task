@@ -3,7 +3,6 @@ import React, {FC, useState } from 'react';
 import * as actionTypes from '../../store/actions/actionTypes';
 import { useDispatch } from 'react-redux';
 
-
 import { uId } from '../../util/uid';
 
 import '../../scss/addItem.scss';

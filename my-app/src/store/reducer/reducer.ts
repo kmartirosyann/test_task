@@ -31,8 +31,6 @@ export const reducer = (state = initialState,action:Action)=>{
             } 
         },
         [actionTypes.EDIT_TODO_ITEM_INCOMPLETE as string]:()=>{
-            state.data.map(i=>i.id === action.id ? i.completed=!i.completed : i )
-            localeData(state.data)
            return {...state }   
         },
         [actionTypes.DELETE_TODO_ITEM as string]:()=>{

@@ -25,29 +25,36 @@ export const loadTodoList =(id:string,title:string)=>{
     }
 }
 
+export const remove =(id:string,state:ITodo)=>{
+   state.data = state.data.filter((item:TodoItems)=>{
+        return item.id !== id
+    })
+    return postRequestTodo(state)
+}
 
 export const deleteTodoItems = (id:string)=>{
     return (dispatch:any,getState:any)=>{
-        return ()=>{
-            getState().data.filter((item:TodoItems)=>item.id !== id)
-            return postRequestTodo(getState())
+        return remove(id,getState()) 
             .then(res=>dispatch({
                 type:actionTypes.DELETE_TODO_ITEM,
                 payload:res
             }))
-        }
+        
     }
+}
+
+const updateCheckbox =(id:string,state:ITodo)=>{
+    state.data.map((item:TodoItems)=>item.id === id ? item.completed = !item.completed : item)
+    return postRequestTodo(state)
 }
 
 export const editCheckBox =(id:string)=>{
     return (dispatch:any,getState:any)=>{
-        return ()=>{
-            getState().data.map((item:TodoItems)=>item.id === id ? item.completed = !item.completed : item)
-            return postRequestTodo(getState())
+        return updateCheckbox(id,getState())     
             .then(res=>dispatch({
                 type:actionTypes.EDIT_TODO_ITEM_INCOMPLETE,
                 payload:res
             }))
-        }
+        
     }
 }

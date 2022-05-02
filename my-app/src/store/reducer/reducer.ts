@@ -13,7 +13,7 @@ const initialState = {
          
 }
 
-type Action ={type:string,payload:any ,id:string,title:string}
+type Action ={ type:string,payload:any }
 
 export const reducer = (state = initialState,action:Action)=>{
    
@@ -23,11 +23,9 @@ export const reducer = (state = initialState,action:Action)=>{
             data:[...action.payload]
         }),
         [actionTypes.ADD_ITEM_TODO as string]:()=>{
-            const data = [...state.data,action.payload]
-            localeData(data)
             return{
                 ...state,
-                data
+                data:action.payload
             } 
         },
         [actionTypes.EDIT_TODO_ITEM_INCOMPLETE as string]:()=>{

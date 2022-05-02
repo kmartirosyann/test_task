@@ -9,6 +9,7 @@ import '../../scss/todoItemBox.scss';
 
 
 const Todo:FC<TodoItems> = (props) => {
+  
   const {completed,title,id} = props
 
   const [text,setText] = useState(title)

@@ -58,3 +58,18 @@ export const editCheckBox =(id:string)=>{
         
     }
 }
+
+const newTodoList =(todo:TodoItems,state:ITodo)=>{
+    state.data = [...state.data,todo]
+    return postRequestTodo(state)
+}
+
+export const addTodoListItem =(todo:TodoItems)=>{
+    return (dispatch:any,getState:any)=>{
+        return newTodoList(todo,getState())
+        .then(res=>dispatch({
+            type:actionTypes.ADD_ITEM_TODO,
+            payload:res
+        }))
+    }
+}

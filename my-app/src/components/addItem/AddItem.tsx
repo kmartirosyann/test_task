@@ -1,13 +1,14 @@
 import React, {FC, useState } from 'react';
 
-import * as actionTypes from '../../store/actions/actionTypes';
 import { useDispatch } from 'react-redux';
+import {addTodoListItem} from '../../store/actions/actionRequest'
 
 import { uId } from '../../util/uid';
 
 import '../../scss/addItem.scss';
 
 export const AddItem:FC = () => {
+
   const [title,setTitle] = useState<string>('')
 
   const dispatch = useDispatch()
@@ -24,10 +25,7 @@ export const AddItem:FC = () => {
 
   const handleSubmit =()=>{
     if(title !==''){ 
-     dispatch({
-       type: actionTypes.ADD_ITEM_TODO,
-       payload:todoList
-     })
+     dispatch(addTodoListItem(todoList))
      setTitle('')
     }
   }

@@ -7,6 +7,7 @@ import { ITodo } from '../../types/type';
 import Todo from '../todo/Todo';
 
 export const TodoList = () => {
+  
   const {data} = useSelector((state:ITodo) => state)
 
   const completedTodo = data.filter(item=>!item.completed) 
@@ -15,6 +16,7 @@ export const TodoList = () => {
   const dispatch = useDispatch()
 
   useEffect(()=>{
+
     const getData = window.localStorage.getItem('todoList')
     
     if (getData){
